@@ -38,7 +38,7 @@ public class ReportGenerator {
         out.println();
   
         if (!report.hasIssues()) {  
-            out.println("✓ No issues found. Organization structure is healthy!");  
+            out.println("No issues found. Organization structure is healthy!");
             out.println();  
             return;  
         }
@@ -57,18 +57,18 @@ public class ReportGenerator {
      */  
     private void printUnderpaidManagers(AnalysisReport report, PrintStream out) {  
         if (report.getUnderpaidManagers().isEmpty()) {  
-            out.println("✓ No underpaid managers found.");  
+            out.println("No underpaid managers found.");
             out.println();  
             return;  
         }
   
-        out.println("⚠ UNDERPAID MANAGERS");  
+        out.println("UNDERPAID MANAGERS");
         out.println("-".repeat(80));  
         out.println("These managers earn less than 20% more than their subordinates' average:");  
         out.println();
   
         for (AnalysisReport.SalaryIssue issue : report.getUnderpaidManagers()) {  
-            out.printf("  • %s (ID: %s)%n",   
+            out.printf("   %s (ID: %s)%n",
                 issue.getManager().getFullName(),   
                 issue.getManager().getId());  
             out.printf("    Current salary: %s%n",   
@@ -86,12 +86,12 @@ public class ReportGenerator {
      */  
     private void printOverpaidManagers(AnalysisReport report, PrintStream out) {  
         if (report.getOverpaidManagers().isEmpty()) {  
-            out.println("✓ No overpaid managers found.");  
+            out.println("No overpaid managers found.");
             out.println();  
             return;  
         }
   
-        out.println("⚠ OVERPAID MANAGERS");  
+        out.println("OVERPAID MANAGERS");
         out.println("-".repeat(80));  
         out.println("These managers earn more than 50% more than their subordinates' average:");  
         out.println();
@@ -115,12 +115,12 @@ public class ReportGenerator {
      */  
     private void printLongReportingLines(AnalysisReport report, PrintStream out) {  
         if (report.getLongReportingLines().isEmpty()) {  
-            out.println("✓ No excessively long reporting lines found.");  
+            out.println("No excessively long reporting lines found.");
             out.println();  
             return;  
         }
   
-        out.println("⚠ LONG REPORTING LINES");  
+        out.println("LONG REPORTING LINES");
         out.println("-".repeat(80));  
         out.println("These employees have more than 4 managers between them and the CEO:");  
         out.println();
