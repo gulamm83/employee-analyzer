@@ -49,7 +49,7 @@ public class CsvReaderService {
                 }
   
                 try {  
-                    Employee employee = parseLine(line, lineNumber);  
+                    Employee employee = parseLine(line);
                     employees.add(employee);  
                 } catch (IllegalArgumentException e) {  
                     throw new EmployeeDataException(  
@@ -71,7 +71,7 @@ public class CsvReaderService {
     /**  
      * Parses a single CSV line into an Employee object.  
      */  
-    private Employee parseLine(String line, int lineNumber) {  
+    private Employee parseLine(String line) {
         String[] parts = line.split(Constants.CSV_DELIMITER, -1);
   
         if (parts.length != Constants.CSV_EXPECTED_COLUMNS) {  
